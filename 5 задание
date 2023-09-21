@@ -1,0 +1,59 @@
+
+
+#include <iostream>
+#include <stdlib.h>
+int main()
+{
+	int mass[10] = { 0 };
+	int Revers[10] = { 0 };
+	int x = 12344320;
+	int test = 2;
+	int current = x;
+	int palid = 0;
+	
+	int result = 0;
+	//Проверяем кол-во символов 
+	while (current > 100)
+	{
+		current = current / 10;
+		test++;
+		
+	}
+	//Записываем в массив
+	for (int i = 0; i < test; i++)
+	{
+		mass[i] = x % 10;
+		x /= 10;
+		printf("mass1 %d\n", mass[i]);
+	}
+	//Переворачиваем
+	for (int i = 0; i < test; i++)
+	{
+		Revers[test - i] = mass[i];
+	}
+	for (int i = 1; i < test+1; i++)
+	{
+		printf("Revers %d\n", Revers[i]);
+
+	}
+	//Проверяем схожи ли 
+	for (int i = 0; i < test; i++)
+	{
+		if (Revers[i+1] == mass[i])
+		{
+			palid++;
+		}
+	}
+	//Ответ
+	if (palid == test)
+	{
+		printf("true");
+	}
+	else
+	{
+		printf("false");
+	}
+	
+	
+
+}
